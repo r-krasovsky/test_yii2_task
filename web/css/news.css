@@ -1,0 +1,32 @@
+.news-index .news_container{
+    display: flex; flex-wrap: wrap;
+}
+
+.news_card{
+    width: 250px;
+}
+
+.news_card .image{
+    width: 200px;
+    height: 150px;
+    text-align: center;
+}
+.news_card .image img{
+    height: 150px;
+}
+
+.news_card:hover{
+    border: 1px grey solid !important;
+}
+
+
+.news-view .image, .news-form .image{
+    text-align: center;
+    height:     450px;
+    width:      650px;
+}
+
+.news-view .image img, .news-form .image img{
+    height: 100%;
+    
+}
