@@ -17,6 +17,7 @@ class NewsAsset extends AssetBundle
         'css/news.css',
     ];
     public $js = [
+        'js/news.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
