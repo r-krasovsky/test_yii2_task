@@ -151,7 +151,7 @@ class NewsController extends Controller {
      *
      * @return \yii\web\Response
      */
-    private function saveNews(News &$oModel) {
+    private function saveNews(News $oModel) {
         
         $oModel->image = UploadedFile::getInstance($oModel, 'image');
         if ($oModel->validate()) {

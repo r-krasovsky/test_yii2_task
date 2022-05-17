@@ -3,8 +3,7 @@
 namespace app\models;
 
 use Yii;
-use yii\base\Model;
-use yii\web\UploadedFile;
+use yii\db\ActiveRecord;
 use yii\imagine\Image;
 
 /**
@@ -13,12 +12,12 @@ use yii\imagine\Image;
  * @property int    $id
  * @property string $title
  * @property string $content
- * @property file   $image
+ * @property Image   $image
  */
-class News extends \yii\db\ActiveRecord {
+class News extends ActiveRecord {
     
-    const SCENARIO_CREATE = 'create';
-    const SCENARIO_UPDATE = 'update';
+    public const SCENARIO_CREATE = 'create';
+    public const SCENARIO_UPDATE = 'update';
     
     /**
      * {@inheritdoc}
