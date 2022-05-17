@@ -3,16 +3,15 @@
 }
 
 .news_card{
-    width: 250px;
+    width: 360px;
 }
 
 .news_card .image{
-    width: 200px;
-    height: 150px;
+    height: 200px;
     text-align: center;
 }
 .news_card .image img{
-    height: 150px;
+    height: 100%;
 }
 
 .news_card:hover{
@@ -22,8 +21,8 @@
 
 .news-view .image, .news-form .image{
     text-align: center;
-    height:     450px;
-    width:      650px;
+    height:     400px;
+    width:      600px;
 }
 
 .news-view .image img, .news-form .image img{

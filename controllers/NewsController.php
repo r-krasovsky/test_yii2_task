@@ -41,7 +41,7 @@ class NewsController extends Controller {
     public function actionIndex() {
         $oQuery = News::find();
         $oPagination = new Pagination([
-                                          'defaultPageSize' => 8,
+                                          'defaultPageSize' => 9,
                                           'totalCount'      => $oQuery->count(),
                                       ]);
         
@@ -156,17 +156,17 @@ class NewsController extends Controller {
         $oModel->image = UploadedFile::getInstance($oModel, 'image');
         if ($oModel->validate()) {
             $aUpdateFields = ['title', 'content', 'create_date', 'update_date'];
-          
-            if ($oModel->image !== NULL) {
-                $oModel->uploadImage($oModel->image);
-                $aUpdateFields[] = 'image';
-            }
             
             $oModel->update_date = ($oModel->id)? new Expression('UNIX_TIMESTAMP()') : 0;
             $oModel->create_date = (!$oModel->id)? new Expression('UNIX_TIMESTAMP()'): $oModel->create_date;
             $oModel->save(FALSE, $aUpdateFields);
-        }else{
-            $errors = $oModel->errors;
+    
+            if ($oModel->image !== NULL) {
+                $oModel->uploadImage($oModel->image);
+                $aUpdateFields = ['image'];
+                $oModel->update(FALSE, $aUpdateFields);
+            }
+            
         }
         
         return $this->redirect(['view', 'id' => $oModel->id]);
